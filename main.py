@@ -1,8 +1,8 @@
-import random
-from tkinter import *
+import random  #To get random words
+from tkinter import * # For GUI
 import time
-import pandas
-import pyttsx3
+import pandas  #To extract the data from CSV file
+import pyttsx3 # For the voice Feature
 
 BG = "#B1DDC6"
 current_card = {}
