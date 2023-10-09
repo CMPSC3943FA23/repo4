@@ -27,4 +27,11 @@ window.config(padx=50, pady=50, bg=BG) #padding: 50px to x and y
 
 flip_timer = window.after(3000, func=flip_card) #Flips the card in 3 secs
 
-canvas = Canvas(width=800, height=526) #This is our actual width and height of the app window.
+canvas = Canvas(width=800, height=526) #This is the actual width and height of the app window.
+card_front_img = PhotoImage(file="images/card_front.png")
+
+
+
+
+next_card()
+window.mainloop() # need this to keep the console window open
