@@ -10,16 +10,45 @@ to_learn = {}
 engine = pyttsx3.init()
 
 
+/*
+
+PLEASE NAME THE FILE EXACTLY MENTIONED BELOW
+(2 Files) in the data Folder: i. words_to_learn.csv
+                        ii. spanish_words.csv
+
+*/
 
 
+try:
+    data = pandas.read_csv("data/words_to_learn.csv")
+except FileNotFoundError:
+    original_data = pandas.read_csv("data/spanish_words.csv")
+    print(original_data)
+    to_learn = original_data.to_dict(orient="records")
+
+else:
+    to_learn = data.to_dict(orient="records")
 
 
+def next_card():
+    global current_card, flip_timer
+    window.after_cancel(flip_timer)
+    current_card = random.choice(to_learn)
+    canvas.itemconfig(card_title, text="French", fill="black")
+    canvas.itemconfig(card_word, text=current_card["Spanish"], fill="black")
+    canvas.itemconfig(card_background, image=card_front_img)
+    flip_timer = window.after(3000, func=flip_card)
 
 
+def speak():
+  
 
+def flip_card():
+   
 
-
-
+def is_known():
+   
+  
 
 window = Tk()
 window.title("FlipCard")
